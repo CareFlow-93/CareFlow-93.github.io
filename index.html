@@ -205,6 +205,8 @@
         padding: 11px 13px; color: var(--text-main); font-size: 0.9rem; width: 100%; transition: border-color .2s, box-shadow .2s;
     }
     .field textarea { min-height: 110px; resize: vertical; }
+    .field textarea.quote-text { min-height: 300px; line-height: 1.75; font-family: inherit; overflow-y: auto; }
+    .quote-wrap { max-width: 900px; margin: 0 auto; }
     .field input::placeholder, .field textarea::placeholder { color: #4b5a70; }
     .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(212,175,55,0.12); }
     .field input[aria-invalid="true"], .field select[aria-invalid="true"] { border-color: #f87171; }
@@ -508,81 +510,26 @@
             <div class="section-head">
                 <p class="eyebrow" data-i18n="quote.eyebrow">Request a quote</p>
                 <h2 class="section-title" data-i18n="quote.title">B2B 견적 요청</h2>
-                <p class="section-desc" data-i18n="quote.desc">아래 내용을 작성하면 이메일 앱으로 문의가 열립니다. 영업일 기준 24시간 내 회신드립니다.</p>
+                <p class="section-desc" data-i18n="quote.desc">아래 양식을 자유롭게 수정해 Gmail, 메일 앱, WhatsApp 중 편한 방법으로 보내주세요. 영업일 기준 24시간 내 회신드립니다.</p>
             </div>
 
-            <form class="quote-wrap" id="quote-form" novalidate>
-                <div class="form-grid">
-                    <div class="field">
-                        <label for="f-name" data-i18n-html="quote.name">이름 <span class="req">*</span></label>
-                        <input id="f-name" name="name" type="text" autocomplete="name" required>
-                        <span class="err" data-err="name"></span>
-                    </div>
-                    <div class="field">
-                        <label for="f-company" data-i18n-html="quote.company">회사명 <span class="req">*</span></label>
-                        <input id="f-company" name="company" type="text" autocomplete="organization" required>
-                        <span class="err" data-err="company"></span>
-                    </div>
-                    <div class="field">
-                        <label for="f-country" data-i18n-html="quote.country">국가 <span class="req">*</span></label>
-                        <select id="f-country" name="country" required></select>
-                        <span class="err" data-err="country"></span>
-                    </div>
-                    <div class="field">
-                        <label for="f-email" data-i18n-html="quote.email">이메일 <span class="req">*</span></label>
-                        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
-                        <span class="err" data-err="email"></span>
-                    </div>
-                    <div class="field">
-                        <label for="f-whatsapp" data-i18n="quote.whatsapp">WhatsApp 번호</label>
-                        <input id="f-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="+977 ...">
-                    </div>
-                    <div class="field">
-                        <label for="f-product" data-i18n-html="quote.product">관심 상품 <span class="req">*</span></label>
-                        <select id="f-product" name="product" required></select>
-                        <span class="err" data-err="product"></span>
-                    </div>
-                    <div class="field third">
-                        <label for="f-quantity" data-i18n-html="quote.quantity">예상 수량 <span class="req">*</span></label>
-                        <input id="f-quantity" name="quantity" type="number" min="1" step="1" inputmode="numeric" placeholder="100" required>
-                        <span class="err" data-err="quantity"></span>
-                    </div>
-                    <div class="field third">
-                        <label for="f-target" data-i18n="quote.targetPrice">목표 단가 (선택)</label>
-                        <input id="f-target" name="targetPrice" type="text" placeholder="USD 00.00">
-                    </div>
-                    <div class="field third">
-                        <label for="f-deadline" data-i18n="quote.deadline">희망 납기 (선택)</label>
-                        <input id="f-deadline" name="deadline" type="date">
-                    </div>
-                    <div class="field full">
-                        <label for="f-message" data-i18n="quote.message">추가 요청 사항</label>
-                        <textarea id="f-message" name="message"></textarea>
-                    </div>
-                    <div class="field full">
-                        <label class="consent" for="f-consent">
-                            <input id="f-consent" name="consent" type="checkbox" required>
-                            <span><span data-i18n="quote.consent">개인정보 수집·이용에 동의합니다. (견적 응대 목적, 3년 보관)</span>
-                            <a href="privacy.html" target="_blank" rel="noopener" data-i18n="quote.consentLink">개인정보처리방침</a></span>
-                        </label>
-                        <span class="err" data-err="consent"></span>
-                    </div>
+            <div class="quote-wrap">
+                <div class="field">
+                    <label for="f-message" data-i18n="quote.message">문의 내용</label>
+                    <textarea id="f-message" class="quote-text" rows="12" spellcheck="false"></textarea>
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-gold" data-i18n="quote.submit">이메일로 견적 요청 보내기</button>
-                    <a class="btn btn-wa btn-sm" id="wa-alt" href="https://wa.me/821023860069" target="_blank" rel="noopener" data-i18n="quote.alt">WhatsApp으로 보내기</a>
+                    <a class="btn btn-gold" id="gmail-btn" href="#" target="_blank" rel="noopener" data-i18n="quote.gmail">Gmail로 보내기</a>
+                    <a class="btn btn-outline" id="mailto-btn" href="#" data-i18n="quote.mailApp">메일 앱으로 보내기</a>
+                    <a class="btn btn-wa" id="wa-alt" href="https://wa.me/821023860069" target="_blank" rel="noopener" data-i18n="quote.alt">WhatsApp으로 보내기</a>
+                    <button type="button" class="copy-btn" id="copy-btn" data-i18n="quote.copy">문의 내용 복사</button>
                 </div>
-                <p class="form-note" data-i18n="quote.note">버튼을 누르면 기본 이메일 앱이 열립니다. 열리지 않으면 WhatsApp 버튼을 이용해 주세요.</p>
-
-                <div class="form-status" id="form-status" role="status" aria-live="polite">
-                    <strong data-i18n="quote.statusTitle">이메일 앱이 열렸는지 확인해 주세요.</strong>
-                    <span data-i18n="quote.statusDesc">앱이 열리지 않으면 아래 WhatsApp으로 보내거나 문의 내용을 복사해 전달해 주세요.</span>
-                    <div class="status-actions">
-                        <button type="button" class="copy-btn" id="copy-btn" data-i18n="quote.copy">문의 내용 복사</button>
-                    </div>
-                </div>
-            </form>
+                <p class="form-note" data-i18n="quote.note">Gmail 버튼은 브라우저에서 Gmail 작성 창을 열기 때문에 메일 앱이 없어도 보낼 수 있습니다.</p>
+                <p class="form-note"><span data-i18n="quote.consentNote">보내는 내용은 사이트에 저장되지 않습니다.</span>
+                    <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--accent-color)" data-i18n="footer.privacy">개인정보처리방침</a>
+                </p>
+            </div>
         </div>
     </section>
 
@@ -755,35 +702,33 @@
             quote: {
                 eyebrow: "Request a quote",
                 title: "B2B 견적 요청",
-                desc: "아래 내용을 작성하면 이메일 앱으로 문의가 열립니다. 영업일 기준 24시간 내 회신드립니다.",
-                name: '이름 <span class="req">*</span>',
-                company: '회사명 <span class="req">*</span>',
-                country: '국가 <span class="req">*</span>',
-                email: '이메일 <span class="req">*</span>',
-                whatsapp: "WhatsApp 번호",
-                product: '관심 상품 <span class="req">*</span>',
-                quantity: '예상 수량 <span class="req">*</span>',
-                targetPrice: "목표 단가 (선택)",
-                deadline: "희망 납기 (선택)",
-                message: "추가 요청 사항",
-                consent: "개인정보 수집·이용에 동의합니다. (견적 응대 목적, 3년 보관)",
-                consentLink: " 개인정보처리방침",
-                submit: "이메일로 견적 요청 보내기",
+                desc: "아래 양식을 자유롭게 수정해 Gmail, 메일 앱, WhatsApp 중 편한 방법으로 보내주세요. 영업일 기준 24시간 내 회신드립니다.",
+                message: "문의 내용",
+                gmail: "Gmail로 보내기",
+                mailApp: "메일 앱으로 보내기",
                 alt: "WhatsApp으로 보내기",
-                note: "버튼을 누르면 기본 이메일 앱이 열립니다. 열리지 않으면 WhatsApp 버튼을 이용해 주세요.",
-                statusTitle: "이메일 앱이 열렸는지 확인해 주세요.",
-                statusDesc: "앱이 열리지 않으면 아래 WhatsApp으로 보내거나 문의 내용을 복사해 전달해 주세요.",
                 copy: "문의 내용 복사",
                 copied: "복사되었습니다",
-                selectCountry: "국가 선택",
-                selectProduct: "상품 선택",
-                other: "기타 / 직접 입력",
-                required: "필수 항목입니다.",
-                invalidEmail: "이메일 형식이 올바르지 않습니다.",
-                agreeRequired: "동의가 필요합니다.",
-                invalidQty: "1 이상의 숫자를 입력해 주세요.",
-                waIntro: "안녕하세요, CareFlow에 견적을 요청합니다.",
-                mailSubject: "CareFlow 견적 요청"
+                note: "Gmail 버튼은 브라우저에서 Gmail 작성 창을 열기 때문에 메일 앱이 없어도 보낼 수 있습니다.",
+                consentNote: "보내는 내용은 사이트에 저장되지 않습니다.",
+                subject: "CareFlow 견적 요청",
+                productLabel: "관심 상품",
+                template: `안녕하세요, CareFlow에 견적을 요청합니다.
+
+회사명:
+국가:
+담당자:
+이메일:
+WhatsApp:
+
+관심 상품:
+예상 수량:
+목표 단가:
+희망 납기:
+
+추가 요청 사항:
+
+`
             },
             contact: {
                 eyebrow: "Contact", title: "연락처",
@@ -913,35 +858,33 @@
             quote: {
                 eyebrow: "Request a quote",
                 title: "Request a B2B Quote",
-                desc: "Fill in the form below and your email app will open with the inquiry. We reply within 24 business hours.",
-                name: 'Name <span class="req">*</span>',
-                company: 'Company <span class="req">*</span>',
-                country: 'Country <span class="req">*</span>',
-                email: 'Email <span class="req">*</span>',
-                whatsapp: "WhatsApp number",
-                product: 'Product of interest <span class="req">*</span>',
-                quantity: 'Estimated quantity <span class="req">*</span>',
-                targetPrice: "Target unit price (optional)",
-                deadline: "Required delivery date (optional)",
-                message: "Additional requirements",
-                consent: "I agree to the collection and use of my personal data (for quotation response, kept for 3 years).",
-                consentLink: " Privacy Policy",
-                submit: "Send Quote Request by Email",
+                desc: "Edit the template freely and send it via Gmail, your mail app, or WhatsApp. We reply within 24 business hours.",
+                message: "Your inquiry",
+                gmail: "Send via Gmail",
+                mailApp: "Open mail app",
                 alt: "Send via WhatsApp",
-                note: "The button opens your default email app. If it does not open, please use the WhatsApp button.",
-                statusTitle: "Please check whether your email app opened.",
-                statusDesc: "If it did not, send the inquiry via WhatsApp below or copy the message and send it to us.",
-                copy: "Copy inquiry",
+                copy: "Copy message",
                 copied: "Copied",
-                selectCountry: "Select country",
-                selectProduct: "Select product",
-                other: "Other / specify",
-                required: "This field is required.",
-                invalidEmail: "Please enter a valid email address.",
-                agreeRequired: "Please agree before submitting.",
-                invalidQty: "Please enter a number of 1 or more.",
-                waIntro: "Hello CareFlow, I would like a quotation.",
-                mailSubject: "CareFlow Quote Request"
+                note: "The Gmail button opens a Gmail compose window in your browser, so no mail app is needed.",
+                consentNote: "What you send is not stored on this website.",
+                subject: "CareFlow Quote Request",
+                productLabel: "Product of interest",
+                template: `Hello CareFlow, I would like to request a quotation.
+
+Company:
+Country:
+Contact person:
+Email:
+WhatsApp:
+
+Product of interest:
+Estimated quantity:
+Target unit price:
+Required delivery date:
+
+Additional requirements:
+
+`
             },
             contact: {
                 eyebrow: "Contact", title: "Contact",
@@ -1071,35 +1014,33 @@
             quote: {
                 eyebrow: "Request a quote",
                 title: "B2B कोटेशन अनुरोध",
-                desc: "तलको फारम भर्नुहोस्; इमेल एपमा सन्देश तयार हुन्छ। कार्यदिनको २४ घण्टाभित्र जवाफ दिनेछौं।",
-                name: 'नाम <span class="req">*</span>',
-                company: 'कम्पनी <span class="req">*</span>',
-                country: 'देश <span class="req">*</span>',
-                email: 'इमेल <span class="req">*</span>',
-                whatsapp: "WhatsApp नम्बर",
-                product: 'इच्छुक उत्पादन <span class="req">*</span>',
-                quantity: 'अनुमानित परिमाण <span class="req">*</span>',
-                targetPrice: "लक्षित मूल्य (वैकल्पिक)",
-                deadline: "आवश्यक मिति (वैकल्पिक)",
-                message: "थप जानकारी",
-                consent: "व्यक्तिगत जानकारी संकलन र प्रयोगमा सहमति (कोटेशन उत्तरका लागि, ३ वर्ष)।",
-                consentLink: " गोपनीयता नीति",
-                submit: "इमेलबाट कोटेशन पठाउनुहोस्",
+                desc: "तलको ढाँचा स्वतन्त्र रूपमा सम्पादन गरी Gmail, इमेल एप वा WhatsApp मार्फत पठाउनुहोस्। कार्यदिनको २४ घण्टाभित्र जवाफ दिनेछौं।",
+                message: "तपाईंको सोधपुछ",
+                gmail: "Gmail बाट पठाउनुहोस्",
+                mailApp: "इमेल एप खोल्नुहोस्",
                 alt: "WhatsApp बाट पठाउनुहोस्",
-                note: "बटन थिच्दा इमेल एप खुल्छ। नखुलेमा WhatsApp बटन प्रयोग गर्नुहोस्।",
-                statusTitle: "इमेल एप खुलेको छ कि जाँच्नुहोस्।",
-                statusDesc: "नखुलेमा तलको WhatsApp बाट पठाउनुहोस् वा विवरण प्रतिलिपि गरी पठाउनुहोस्।",
-                copy: "विवरण प्रतिलिपि गर्नुहोस्",
+                copy: "सन्देश प्रतिलिपि गर्नुहोस्",
                 copied: "प्रतिलिपि भयो",
-                selectCountry: "देश छान्नुहोस्",
-                selectProduct: "उत्पादन छान्नुहोस्",
-                other: "अन्य / उल्लेख गर्नुहोस्",
-                required: "यो फाँट आवश्यक छ।",
-                invalidEmail: "इमेल ढाँचा मिलेन।",
-                agreeRequired: "सहमति आवश्यक छ।",
-                invalidQty: "१ वा सोभन्दा बढी संख्या लेख्नुहोस्।",
-                waIntro: "नमस्ते CareFlow, म कोटेशन अनुरोध गर्न चाहन्छु।",
-                mailSubject: "CareFlow कोटेशन अनुरोध"
+                note: "Gmail बटनले ब्राउजरमै Gmail लेख्ने विन्डो खोल्छ, त्यसैले इमेल एप चाहिँदैन।",
+                consentNote: "पठाइएको सामग्री यस वेबसाइटमा भण्डारण गरिँदैन।",
+                subject: "CareFlow कोटेशन अनुरोध",
+                productLabel: "इच्छुक उत्पादन",
+                template: `नमस्ते CareFlow, म कोटेशन अनुरोध गर्न चाहन्छु।
+
+कम्पनी:
+देश:
+सम्पर्क व्यक्ति:
+इमेल:
+WhatsApp:
+
+इच्छुक उत्पादन:
+अनुमानित परिमाण:
+लक्षित मूल्य:
+आवश्यक मिति:
+
+थप जानकारी:
+
+`
             },
             contact: {
                 eyebrow: "Contact", title: "सम्पर्क",
@@ -1131,13 +1072,6 @@
                 copyright: "© 2026 CareFlow. All Rights Reserved. | सियोल, कोरिया"
             }
         }
-    };
-
-    var COUNTRY_VALUES = ["Nepal", "Cambodia", "Myanmar", "Thailand", "Other"];
-    var COUNTRY_LABELS = {
-        ko: { Nepal: "네팔", Cambodia: "캄보디아", Myanmar: "미얀마", Thailand: "태국", Other: "기타" },
-        en: { Nepal: "Nepal", Cambodia: "Cambodia", Myanmar: "Myanmar", Thailand: "Thailand", Other: "Other" },
-        ne: { Nepal: "नेपाल", Cambodia: "कम्बोडिया", Myanmar: "म्यानमार", Thailand: "थाइल्यान्ड", Other: "अन्य" }
     };
 
     var SERVICE_ICONS = [
@@ -1240,30 +1174,6 @@
         if (waAlt) waAlt.href = "https://wa.me/" + WA_NUMBER;
     }
 
-    function buildSelectOptions(t) {
-        var country = document.getElementById("f-country");
-        var product = document.getElementById("f-product");
-        if (!country || !product) return;
-
-        var prevCountry = country.value;
-        var prevProduct = product.value;
-
-        var labels = COUNTRY_LABELS[currentLang] || COUNTRY_LABELS.en;
-        country.innerHTML = '<option value="">' + esc(t.quote.selectCountry) + "</option>" +
-            COUNTRY_VALUES.map(function (v) {
-                return '<option value="' + v + '">' + esc(labels[v] || v) + "</option>";
-            }).join("");
-
-        product.innerHTML = '<option value="">' + esc(t.quote.selectProduct) + "</option>" +
-            t.products.items.map(function (item, i) {
-                return '<option value="' + i + '">' + esc(item.title) + "</option>";
-            }).join("") +
-            '<option value="other">' + esc(t.quote.other) + "</option>";
-
-        if (prevCountry) country.value = prevCountry;
-        if (prevProduct) product.value = prevProduct;
-    }
-
     function applyLang(lang) {
         if (!I18N[lang]) lang = "en";
         currentLang = lang;
@@ -1273,8 +1183,12 @@
         if (document.body) document.body.setAttribute("data-lang", lang);
 
         renderStatic(t);
-        buildSelectOptions(t);
-        clearErrors();
+        if (messageBox && !userEdited) {
+            var product = selectedProductIndex >= 0 && t.products.items[selectedProductIndex]
+                ? t.products.items[selectedProductIndex].title
+                : "";
+            fillTemplate(product);
+        }
 
         document.querySelectorAll(".lang-btn").forEach(function (btn) {
             var active = btn.getAttribute("data-lang") === lang;
@@ -1290,7 +1204,7 @@
             window.history.replaceState(null, "", url.pathname + "?" + url.searchParams.toString() + url.hash);
         } catch (e) {}
 
-        updateWhatsAppText();
+        updateLinks();
     }
 
     function initialLang() {
@@ -1308,167 +1222,75 @@
         return "en";
     }
 
-    /* ---------- Form ---------- */
-    var form = document.getElementById("quote-form");
-    var statusBox = document.getElementById("form-status");
-    var lastPayload = null;
-
-    function setError(name, message) {
-        var err = document.querySelector('[data-err="' + name + '"]');
-        var input = form ? form.elements[name] : null;
-        if (err) err.textContent = message || "";
-        if (input && input.setAttribute) {
-            if (message) input.setAttribute("aria-invalid", "true");
-            else input.removeAttribute("aria-invalid");
-        }
-    }
-
-    function clearErrors() {
-        document.querySelectorAll(".err").forEach(function (el) { el.textContent = ""; });
-        if (form) {
-            Array.prototype.forEach.call(form.elements, function (el) {
-                if (el.removeAttribute) el.removeAttribute("aria-invalid");
-            });
-        }
-    }
-
-    function validate() {
-        if (!form) return false;
-        var t = I18N[currentLang].quote;
-        var ok = true;
-        clearErrors();
-
-        ["name", "company", "country", "email", "product", "quantity"].forEach(function (name) {
-            var el = form.elements[name];
-            if (!el || !String(el.value).trim()) {
-                setError(name, t.required);
-                ok = false;
-            }
-        });
-
-        var email = form.elements.email;
-        if (email && email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
-            setError("email", t.invalidEmail);
-            ok = false;
-        }
-
-        var qty = form.elements.quantity;
-        if (qty && qty.value.trim() && Number(qty.value) < 1) {
-            setError("quantity", t.invalidQty);
-            ok = false;
-        }
-
-        var consent = form.elements.consent;
-        if (consent && !consent.checked) {
-            setError("consent", t.agreeRequired);
-            ok = false;
-        }
-
-        if (!ok) {
-            var firstInvalid = form.querySelector('[aria-invalid="true"]');
-            if (firstInvalid) firstInvalid.focus();
-        }
-        return ok;
-    }
-
-    function readPayload() {
-        var formData = new FormData(form);
-        var productIndex = formData.get("product");
-        var t = I18N[currentLang];
-        var productLabel = productIndex === "other" || productIndex === ""
-            ? String(formData.get("product") || "")
-            : (t.products.items[Number(productIndex)] ? t.products.items[Number(productIndex)].title : String(productIndex));
-
-        if (productIndex === "other") productLabel = "Other / to be specified";
-
-        return {
-            name: String(formData.get("name") || "").trim(),
-            company: String(formData.get("company") || "").trim(),
-            country: String(formData.get("country") || "").trim(),
-            email: String(formData.get("email") || "").trim(),
-            whatsapp: String(formData.get("whatsapp") || "").trim(),
-            product: productLabel,
-            quantity: String(formData.get("quantity") || "").trim(),
-            targetPrice: String(formData.get("targetPrice") || "").trim(),
-            deadline: String(formData.get("deadline") || "").trim(),
-            message: String(formData.get("message") || "").trim()
-        };
-    }
-
-    function buildBody(p) {
-        var lines = [
-            "[CareFlow B2B Quote Request]",
-            "",
-            "Name: " + p.name,
-            "Company: " + p.company,
-            "Country: " + p.country,
-            "Email: " + p.email,
-            "WhatsApp: " + (p.whatsapp || "-"),
-            "Product: " + p.product,
-            "Quantity: " + p.quantity,
-            "Target price: " + (p.targetPrice || "-"),
-            "Delivery deadline: " + (p.deadline || "-")
-        ];
-        if (p.message) {
-            lines.push("", "Message:", p.message);
-        }
-        return lines.join("\r\n");
-    }
-
-    function updateWhatsAppText() {
-        var el = document.getElementById("wa-alt");
-        if (!el) return;
-        var href = "https://wa.me/" + WA_NUMBER;
-        if (lastPayload) {
-            var t = I18N[currentLang].quote;
-            var text = t.waIntro + "\n\n" +
-                "Company: " + lastPayload.company + "\n" +
-                "Country: " + lastPayload.country + "\n" +
-                "Product: " + lastPayload.product + "\n" +
-                "Quantity: " + lastPayload.quantity;
-            href += "?text=" + encodeURIComponent(text);
-        }
-        el.href = href;
-    }
-
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            if (!validate()) return;
-
-            var payload = readPayload();
-            lastPayload = payload;
-            var t = I18N[currentLang].quote;
-            var subject = "[" + t.mailSubject + "] " + payload.company + " - " + payload.product;
-            var body = buildBody(payload);
-
-            if (statusBox) statusBox.classList.add("show");
-            updateWhatsAppText();
-
-            window.location.href = "mailto:" + EMAIL +
-                "?subject=" + encodeURIComponent(subject) +
-                "&body=" + encodeURIComponent(body);
-        });
-
-        form.addEventListener("input", function (e) {
-            var name = e.target.name;
-            if (name) setError(name, "");
-        });
-
-        form.addEventListener("change", function (e) {
-            var name = e.target.name;
-            if (name) setError(name, "");
-        });
-    }
-
+    /* ---------- Quote ---------- */
+    var messageBox = document.getElementById("f-message");
+    var gmailBtn = document.getElementById("gmail-btn");
+    var mailtoBtn = document.getElementById("mailto-btn");
+    var waBtn = document.getElementById("wa-alt");
     var copyBtn = document.getElementById("copy-btn");
+    var userEdited = false;
+    var selectedProductIndex = -1;
+    var NL = String.fromCharCode(10);
+
+    function quoteText(productTitle) {
+        var t = I18N[currentLang].quote;
+        var text = t.template;
+        if (productTitle) {
+            text = text.split(NL).map(function (line) {
+                return line.indexOf(t.productLabel + ":") === 0 ? t.productLabel + ": " + productTitle : line;
+            }).join(NL);
+        }
+        return text;
+    }
+
+    function autoGrow() {
+        if (!messageBox) return;
+        messageBox.style.height = "auto";
+        var height = Math.max(300, messageBox.scrollHeight + 2);
+        messageBox.style.height = Math.min(height, Math.round(window.innerHeight * 0.7)) + "px";
+    }
+
+    function fillTemplate(productTitle) {
+        if (!messageBox) return;
+        messageBox.value = quoteText(productTitle);
+        userEdited = false;
+        autoGrow();
+        updateLinks();
+    }
+
+    function updateLinks() {
+        if (!messageBox) return;
+        var t = I18N[currentLang].quote;
+        var body = messageBox.value || quoteText();
+        var subject = t.subject;
+
+        if (gmailBtn) {
+            gmailBtn.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(EMAIL) +
+                "&su=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+        }
+        if (mailtoBtn) {
+            mailtoBtn.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+        }
+        if (waBtn) {
+            waBtn.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(body);
+        }
+    }
+
+    if (messageBox) {
+        messageBox.addEventListener("input", function () {
+            userEdited = true;
+            autoGrow();
+            updateLinks();
+        });
+        window.addEventListener("resize", autoGrow);
+    }
+
     if (copyBtn) {
         copyBtn.addEventListener("click", function () {
             var t = I18N[currentLang].quote;
-            var text = lastPayload
-                ? "[" + t.mailSubject + "] " + lastPayload.company + " - " + lastPayload.product + "\n\n" + buildBody(lastPayload)
-                : "";
-            if (!text) return;
+            var text = messageBox ? messageBox.value : "";
 
             function done() {
                 copyBtn.textContent = t.copied;
@@ -1477,13 +1299,9 @@
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(done, function () {});
-            } else {
-                var ta = document.createElement("textarea");
-                ta.value = text;
-                document.body.appendChild(ta);
-                ta.select();
-                try { document.execCommand("copy"); done(); } catch (err) {}
-                document.body.removeChild(ta);
+            } else if (messageBox) {
+                messageBox.select();
+                try { document.execCommand("copy"); done(); } catch (e) {}
             }
         });
     }
@@ -1496,18 +1314,17 @@
 
     document.querySelectorAll(".js-quote").forEach(function (btn) {
         btn.addEventListener("click", function () {
-            var index = btn.getAttribute("data-product");
-            var select = document.getElementById("f-product");
-            if (select && index !== null) select.value = index;
+            var index = Number(btn.getAttribute("data-product"));
+            var item = I18N[currentLang].products.items[index];
+            selectedProductIndex = item ? index : -1;
+            fillTemplate(item ? item.title : "");
             var target = document.getElementById("quote");
             if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-            var nameInput = document.getElementById("f-name");
-            if (nameInput) setTimeout(function () { nameInput.focus({ preventScroll: true }); }, 500);
+            if (messageBox) setTimeout(function () { messageBox.focus({ preventScroll: true }); }, 500);
         });
     });
 
     applyLang(initialLang());
-    updateWhatsAppText();
 })();
 </script>
 </body>

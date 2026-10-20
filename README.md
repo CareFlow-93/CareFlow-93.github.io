@@ -30,9 +30,11 @@ assets/
 
 ## Quote form
 
-The form has no backend. On submit it validates the fields and opens the user's
-email app with a prefilled `mailto:` message to `tjdals3982@naver.com`; a
-WhatsApp fallback with the same content is also provided.
+The quote section has no backend and stores nothing. It shows an editable,
+free-form template in the selected language and offers four ways to send it:
+Gmail web compose (no mail app required), `mailto:` for a desktop mail client,
+WhatsApp, or copying the text. Product buttons insert the selected product
+name into the template.
 
 ## Deployment
 

@@ -311,7 +311,7 @@
       card.querySelector('.product-tag').textContent = p.tag;
       card.querySelector('.product-title').textContent = p.title;
       card.querySelector('.product-desc').textContent = p.desc;
-      card.querySelectorAll('.spec-list li').forEach((li, j) => { if (p.specs[j]) li.textContent = p.specs[j]; });
+      card.querySelectorAll('.spec-list li').forEach((li, j) => { const spec = p.specs[Math.floor(j / 2)]; if (spec) li.textContent = spec; });
       card.querySelector('.brand-link-btn').textContent = t.button;
     });
     if (footer) footer.innerHTML = t.disclaimer;

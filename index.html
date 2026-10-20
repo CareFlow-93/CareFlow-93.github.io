@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0f19">
 <title>CareFlow | 한국 에스테틱·웰니스 B2B 소싱 & 구매대행</title>
-<meta name="description" content="CareFlow는 정관장·커런트바디·듀얼소닉 등 한국 프리미엄 뷰티·웰니스 제품을 네팔·캄보디아·미얀마·태국으로 공급하는 B2B 소싱·구매대행 에이전시입니다. 공급사 검증, 품질 검수, 통관 서류, 국제 배송까지 지원합니다.">
+<meta name="description" content="CareFlow는 정관장·커런트바디·듀얼소닉 등 한국 프리미엄 뷰티·웰니스 제품을 네팔·캄보디아·미얀마·태국으로 공급하는 B2B 소싱·구매대행 에이전시입니다. 공급사 검증, 품질 검수, 통관 서류, 현지 사정에 맞는 운송 방식 협의까지 지원합니다.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://careflow.kr/">
 <link rel="alternate" hreflang="ko" href="https://careflow.kr/?lang=ko">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CareFlow">
 <meta property="og:title" content="CareFlow | Korea Aesthetic & Wellness B2B Sourcing">
-<meta property="og:description" content="Korean premium beauty devices and wellness products sourced for Nepal, Cambodia, Myanmar and Thailand. Supplier verification, QC, export documents and international shipping.">
+<meta property="og:description" content="Korean premium beauty devices and wellness products sourced for Nepal, Cambodia, Myanmar and Thailand. Supplier verification, QC, export documents and shipping coordination.">
 <meta property="og:url" content="https://careflow.kr/">
 <meta property="og:image" content="https://careflow.kr/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -112,7 +112,7 @@
         color: var(--accent-color); border: 1px solid var(--border-color); background: var(--accent-soft);
         padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
     }
-    .hero h1 { font-size: clamp(1.85rem, 4.4vw, 3rem); line-height: 1.28; margin-bottom: 18px; font-weight: 700; letter-spacing: -0.5px; text-wrap: balance; }
+    .hero h1 { font-size: clamp(1.85rem, 4.4vw, 3rem); line-height: 1.28; margin-bottom: 18px; font-weight: 700; letter-spacing: -0.5px; text-wrap: balance; word-break: keep-all; overflow-wrap: break-word; }
     .hero h1 em { color: var(--accent-color); font-style: normal; }
     .hero p.lead { font-size: clamp(1rem, 1.6vw, 1.12rem); color: var(--text-muted); max-width: 720px; margin: 0 auto 28px; }
     .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
@@ -322,7 +322,7 @@
       "@id": "https://careflow.kr/#service",
       "name": "Korea Aesthetic & Wellness B2B Sourcing",
       "provider": { "@id": "https://careflow.kr/#organization" },
-      "serviceType": "Product sourcing, supplier verification, purchasing agency, quality inspection, export documentation and international shipping",
+      "serviceType": "Product sourcing, supplier verification, purchasing agency, quality inspection, export documentation and shipping coordination",
       "areaServed": ["NP", "KH", "MM", "TH"],
       "availableChannel": {
         "@type": "ServiceChannel",
@@ -341,8 +341,8 @@
         },
         {
           "@type": "Question",
-          "name": "네팔까지 배송 기간은 얼마나 걸리나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "항공은 약 5~10일, 해상은 약 3~5주입니다. 현지 통관 기간은 별도입니다." }
+          "name": "네팔까지 어떻게, 얼마나 걸려서 보내나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "현지 파트너가 핸드캐리로 직접 운반해 빠르고 안전하게 전달합니다. 통관 상황에 따라 일정이 조정될 수 있으며, 세부 일정은 견적 시 안내드립니다." }
         },
         {
           "@type": "Question",
@@ -386,8 +386,8 @@
     <section class="hero">
         <div class="hero-inner">
             <span class="badge" data-i18n="hero.badge">Korea → Nepal · Cambodia · Myanmar · Thailand</span>
-            <h1 data-i18n-html="hero.title">한국 에스테틱·웰니스 <em>글로벌 소싱 &amp; 구매대행</em></h1>
-            <p class="lead" data-i18n="hero.desc">정관장·커런트바디·듀얼소닉 등 한국의 프리미엄 뷰티·웰니스 제품을 공급사 검증부터 통관 서류, 국제 배송까지 원스톱으로 소싱합니다.</p>
+            <h1 data-i18n-html="hero.title">한국 에스테틱·웰니스<br><em>글로벌 소싱 &amp; 구매대행</em></h1>
+            <p class="lead" data-i18n="hero.desc">정관장·커런트바디·듀얼소닉 등 한국의 프리미엄 뷰티·웰니스 제품을 공급사 검증부터 수출 서류, 현지 사정에 맞는 운송 방식 협의까지 원스톱으로 지원합니다.</p>
             <div class="hero-cta">
                 <a class="btn btn-gold" href="#quote" data-i18n="hero.ctaQuote">무료 견적 요청</a>
                 <a class="btn btn-wa" href="https://wa.me/821023860069" target="_blank" rel="noopener" data-i18n="hero.ctaWhats">WhatsApp 상담</a>
@@ -607,7 +607,7 @@
         ko: {
             meta: {
                 title: "CareFlow | 한국 에스테틱·웰니스 B2B 소싱 & 구매대행",
-                desc: "CareFlow는 정관장·커런트바디·듀얼소닉 등 한국 프리미엄 뷰티·웰니스 제품을 네팔·캄보디아·미얀마·태국으로 공급하는 B2B 소싱·구매대행 에이전시입니다. 공급사 검증, 품질 검수, 통관 서류, 국제 배송까지 지원합니다."
+                desc: "CareFlow는 정관장·커런트바디·듀얼소닉 등 한국 프리미엄 뷰티·웰니스 제품을 네팔·캄보디아·미얀마·태국으로 공급하는 B2B 소싱·구매대행 에이전시입니다. 공급사 검증, 품질 검수, 통관 서류, 현지 사정에 맞는 운송 방식 협의까지 지원합니다."
             },
             nav: {
                 products: "상품", services: "서비스", process: "진행 절차", faq: "FAQ", contact: "연락처",
@@ -615,8 +615,8 @@
             },
             hero: {
                 badge: "Korea → Nepal · Cambodia · Myanmar · Thailand",
-                title: '한국 에스테틱·웰니스 <em>글로벌 소싱 &amp; 구매대행</em>',
-                desc: "정관장·커런트바디·듀얼소닉 등 한국의 프리미엄 뷰티·웰니스 제품을 공급사 검증부터 통관 서류, 국제 배송까지 원스톱으로 소싱합니다.",
+                title: '한국 에스테틱·웰니스<br><em>글로벌 소싱 &amp; 구매대행</em>',
+                desc: "정관장·커런트바디·듀얼소닉 등 한국의 프리미엄 뷰티·웰니스 제품을 공급사 검증부터 수출 서류, 현지 사정에 맞는 운송 방식 협의까지 원스톱으로 지원합니다.",
                 ctaQuote: "무료 견적 요청",
                 ctaWhats: "WhatsApp 상담",
                 note: "영업일 기준 24시간 내 회신 · 한국어 / English / नेपाली",
@@ -663,7 +663,7 @@
                     { title: "구매대행", desc: "주문·결제·재고 확인 및 출고 일정을 관리합니다." },
                     { title: "품질 검수 (QC)", desc: "출고 전 수량·외관·유통기한·포장 상태를 점검합니다." },
                     { title: "통관·수출 서류", desc: "인보이스·패킹리스트·원산지증명 등 서류를 지원합니다." },
-                    { title: "국제 배송 & A/S", desc: "항공·해상 운송 견적, 추적, 클레임 대응까지." }
+                    { title: "운송 & A/S", desc: "현지 파트너의 핸드캐리로 빠르고 안전하게 전달하고, A/S와 클레임에 대응합니다." }
                 ]
             },
             process: {
@@ -674,7 +674,7 @@
                     { title: "문의", desc: "제품, 수량, 목표가, 희망 납기를 알려주세요." },
                     { title: "견적 · 샘플", desc: "24시간 내 견적서와 샘플 가능 여부를 안내합니다." },
                     { title: "주문 · 검수", desc: "계약·결제 후 출고 전 품질 검수를 진행합니다." },
-                    { title: "출고 · 배송", desc: "수출 서류를 준비하고 국제 배송을 추적합니다." }
+                    { title: "출고 · 운송", desc: "수출 서류를 준비하고 현지 파트너를 통해 안전하게 전달합니다." }
                 ]
             },
             why: {
@@ -694,7 +694,7 @@
                 desc: "더 궁금한 점은 WhatsApp으로 문의해 주세요.",
                 items: [
                     { q: "최소 주문 수량(MOQ)이 있나요?", a: "제품별로 다릅니다. 샘플 1개부터 협의가 가능하며, 대량 주문 시 단가를 재협상합니다." },
-                    { q: "네팔까지 배송 기간은 얼마나 걸리나요?", a: "항공은 약 5~10일, 해상은 약 3~5주입니다. 현지 통관 기간은 별도입니다." },
+                    { q: "네팔까지 어떻게, 얼마나 걸려서 보내나요?", a: "현지 파트너가 핸드캐리로 직접 운반해 빠르고 안전하게 전달합니다. 통관 상황에 따라 일정이 조정될 수 있으며, 세부 일정은 견적 시 안내드립니다." },
                     { q: "가격은 어떻게 구성되나요?", a: "제품 공급가 + 소싱 수수료 + 국제 운송비 + 현지 통관·세금으로 구성되며, 견적서에 항목별로 표기합니다." },
                     { q: "정품과 인증을 확인할 수 있나요?", a: "공급사의 사업자등록증과 제품 인증서를 확인한 뒤, 필요한 범위에서 사본을 제공합니다." }
                 ]
@@ -763,7 +763,7 @@ WhatsApp:
         en: {
             meta: {
                 title: "CareFlow | Korea Aesthetic & Wellness B2B Sourcing",
-                desc: "CareFlow sources premium Korean beauty and wellness products — CheongKwanJang, CurrentBody, Dualsonic — for distributors in Nepal, Cambodia, Myanmar and Thailand, covering supplier verification, QC, export documents and international shipping."
+                desc: "CareFlow sources premium Korean beauty and wellness products — CheongKwanJang, CurrentBody, Dualsonic — for distributors in Nepal, Cambodia, Myanmar and Thailand, covering supplier verification, QC, export documents and shipping coordination."
             },
             nav: {
                 products: "Products", services: "Services", process: "Process", faq: "FAQ", contact: "Contact",
@@ -771,8 +771,8 @@ WhatsApp:
             },
             hero: {
                 badge: "Korea → Nepal · Cambodia · Myanmar · Thailand",
-                title: 'Korean Aesthetic &amp; Wellness <em>B2B Sourcing Agency</em>',
-                desc: "We source premium Korean beauty devices and wellness products — from supplier verification and export documents to international delivery — in one place.",
+                title: 'Korean Aesthetic &amp; Wellness<br><em>B2B Sourcing Agency</em>',
+                desc: "We source premium Korean beauty devices and wellness products — from supplier verification and export documents to arranging the right shipping method — in one place.",
                 ctaQuote: "Request a Free Quote",
                 ctaWhats: "Chat on WhatsApp",
                 note: "Reply within 24 business hours · 한국어 / English / नेपाली",
@@ -819,7 +819,7 @@ WhatsApp:
                     { title: "Purchasing Agency", desc: "Order placement, payment, stock confirmation and shipment scheduling." },
                     { title: "Quality Inspection (QC)", desc: "Quantity, appearance, expiry date and packaging checked before dispatch." },
                     { title: "Export Documentation", desc: "Commercial invoice, packing list, certificate of origin and related paperwork." },
-                    { title: "Shipping & After-sales", desc: "Air and sea freight quotes, tracking and claim handling." }
+                    { title: "Shipping & After-sales", desc: "Fast, safe delivery by hand-carry through our local partner, with after-sales and claim support." }
                 ]
             },
             process: {
@@ -830,7 +830,7 @@ WhatsApp:
                     { title: "Inquiry", desc: "Tell us the product, quantity, target price and delivery date." },
                     { title: "Quote & Sample", desc: "We send a quotation and sample availability within 24 hours." },
                     { title: "Order & Inspection", desc: "Contract and payment, then quality inspection before dispatch." },
-                    { title: "Shipping", desc: "Export documents prepared and international delivery tracked." }
+                    { title: "Dispatch & Delivery", desc: "Export documents prepared and delivered safely through our local partner." }
                 ]
             },
             why: {
@@ -850,7 +850,7 @@ WhatsApp:
                 desc: "For anything else, message us on WhatsApp.",
                 items: [
                     { q: "Is there a minimum order quantity (MOQ)?", a: "It depends on the product. We can start from a single sample and renegotiate unit prices for larger orders." },
-                    { q: "How long does delivery to Nepal take?", a: "About 5–10 days by air and 3–5 weeks by sea. Local customs clearance takes additional time." },
+                    { q: "How are products delivered to Nepal, and how long does it take?", a: "A local partner carries the products by hand, which keeps delivery fast and safe. The schedule may adjust with customs conditions, and we confirm the details in the quotation." },
                     { q: "How is the price calculated?", a: "Product supply price + sourcing fee + international freight + local customs and taxes. Each item is listed separately in the quotation." },
                     { q: "Can you confirm authenticity and certifications?", a: "We verify the supplier's business registration and product certificates, and share copies to the extent required." }
                 ]
@@ -919,7 +919,7 @@ Additional requirements:
         ne: {
             meta: {
                 title: "CareFlow | कोरियाली एस्थेटिक तथा वेलनेस B2B सोर्सिङ",
-                desc: "CareFlow ले CheongKwanJang, CurrentBody, Dualsonic जस्ता कोरियाली प्रिमियम सौन्दर्य तथा वेलनेस उत्पादनहरू नेपाल, कम्बोडिया, म्यानमार र थाइल्यान्डका वितरकहरूका लागि सोर्स गर्छ। आपूर्तिकर्ता प्रमाणीकरण, गुणस्तर जाँच, निर्यात कागजात र अन्तर्राष्ट्रिय ढुवानी समेत।"
+                desc: "CareFlow ले CheongKwanJang, CurrentBody, Dualsonic जस्ता कोरियाली प्रिमियम सौन्दर्य तथा वेलनेस उत्पादनहरू नेपाल, कम्बोडिया, म्यानमार र थाइल्यान्डका वितरकहरूका लागि सोर्स गर्छ। आपूर्तिकर्ता प्रमाणीकरण, गुणस्तर जाँच, निर्यात कागजात र स्थानीय अवस्थाअनुसार उपयुक्त ढुवानी माध्यमको तयारी समेत।"
             },
             nav: {
                 products: "उत्पादन", services: "सेवा", process: "प्रक्रिया", faq: "प्रश्न", contact: "सम्पर्क",
@@ -927,8 +927,8 @@ Additional requirements:
             },
             hero: {
                 badge: "Korea → Nepal · Cambodia · Myanmar · Thailand",
-                title: 'कोरियाली एस्थेटिक तथा वेलनेस <em>B2B सोर्सिङ एजेन्सी</em>',
-                desc: "आपूर्तिकर्ता प्रमाणीकरणदेखि निर्यात कागजात र अन्तर्राष्ट्रिय ढुवानीसम्म — कोरियाका प्रिमियम सौन्दर्य उपकरण तथा वेलनेस उत्पादनहरू एकै ठाउँबाट सोर्स गर्छौं।",
+                title: 'कोरियाली एस्थेटिक तथा वेलनेस<br><em>B2B सोर्सिङ एजेन्सी</em>',
+                desc: "आपूर्तिकर्ता प्रमाणीकरणदेखि निर्यात कागजात र स्थानीय अवस्थाअनुसार उपयुक्त ढुवानी माध्यमको तयारीसम्म — कोरियाका प्रिमियम सौन्दर्य उपकरण तथा वेलनेस उत्पादनहरू एकै ठाउँबाट सोर्स गर्छौं।",
                 ctaQuote: "नि:शुल्क कोटेशन अनुरोध",
                 ctaWhats: "WhatsApp मा कुरा गर्नुहोस्",
                 note: "कार्यदिनको २४ घण्टाभित्र जवाफ · 한국어 / English / नेपाली",
@@ -975,7 +975,7 @@ Additional requirements:
                     { title: "खरिद सेवा", desc: "अर्डर, भुक्तानी, स्टक र ढुवानी तालिकाको व्यवस्थापन।" },
                     { title: "गुणस्तर जाँच (QC)", desc: "पठाउनुअघि परिमाण, बाहिरी अवस्था, म्याद र प्याकिङ जाँच।" },
                     { title: "भन्सार तथा निर्यात कागजात", desc: "इनभ्वाइस, प्याकिङ लिस्ट, उत्पत्ति प्रमाणपत्रलगायत कागजात सहयोग।" },
-                    { title: "ढुवानी र A/S", desc: "हवाई/समुद्री ढुवानी कोटेशन, ट्र्याकिङ र उजुरी समाधान।" }
+                    { title: "ढुवानी र A/S", desc: "स्थानीय साझेदारमार्फत ह्यान्ड-क्यारीद्वारा छिटो र सुरक्षित डेलिभरी, साथै A/S र उजुरी समर्थन।" }
                 ]
             },
             process: {
@@ -986,7 +986,7 @@ Additional requirements:
                     { title: "सोधपुछ", desc: "उत्पादन, परिमाण, लक्षित मूल्य र आवश्यक मिति जानकारी दिनुहोस्।" },
                     { title: "कोटेशन र नमुना", desc: "२४ घण्टाभित्र कोटेशन र नमुना सम्भावना जानकारी गराउँछौं।" },
                     { title: "अर्डर र जाँच", desc: "सम्झौता र भुक्तानीपछि पठाउनुअघि गुणस्तर जाँच गरिन्छ।" },
-                    { title: "पठाउने र ढुवानी", desc: "निर्यात कागजात तयार गरी अन्तर्राष्ट्रिय ढुवानी ट्र्याक गरिन्छ।" }
+                    { title: "पठाउने र ढुवानी", desc: "निर्यात कागजात तयार गरी स्थानीय साझेदारमार्फत सुरक्षित रूपमा पुर्‍याइन्छ।" }
                 ]
             },
             why: {
@@ -1006,7 +1006,7 @@ Additional requirements:
                 desc: "अन्य जिज्ञासाका लागि WhatsApp मा सम्पर्क गर्नुहोस्।",
                 items: [
                     { q: "न्यूनतम अर्डर परिमाण (MOQ) कति हो?", a: "उत्पादनअनुसार फरक पर्छ। १ वटा नमुनाबाट सुरु गर्न सकिन्छ; ठूलो परिमाणमा मूल्य पुनः वार्ता गरिन्छ।" },
-                    { q: "नेपालसम्म ढुवानीमा कति समय लाग्छ?", a: "हवाईमार्गमा करिब ५–१० दिन, समुद्रीमार्गमा करिब ३–५ हप्ता। स्थानीय भन्सार समय अलग हुन्छ।" },
+                    { q: "नेपालसम्म कसरी र कति समयमा पठाइन्छ?", a: "स्थानीय साझेदारले ह्यान्ड-क्यारीमार्फत सिधै बोकेर छिटो र सुरक्षित रूपमा पुर्‍याउँछ। भन्सार अवस्थाअनुसार तालिका समायोजन हुन सक्छ; विस्तृत जानकारी कोटेशनमा जानकारी गराइन्छ।" },
                     { q: "मूल्य कसरी निर्धारण हुन्छ?", a: "उत्पादन मूल्य + सोर्सिङ सेवा शुल्क + अन्तर्राष्ट्रिय ढुवानी + स्थानीय भन्सार/कर। कोटेशनमा प्रत्येक खर्च छुट्टै देखाइन्छ।" },
                     { q: "सक्कली उत्पादन र प्रमाणपत्र कसरी पुष्टि गर्ने?", a: "आपूर्तिकर्ताको व्यवसाय दर्ता र उत्पादन प्रमाणपत्र जाँचेपछि आवश्यक हदसम्म प्रतिलिपि उपलब्ध गराइन्छ।" }
                 ]

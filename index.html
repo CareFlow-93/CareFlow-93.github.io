@@ -62,14 +62,14 @@
     button, input, select, textarea { font: inherit; }
     .skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent-color); color: #000; padding: 10px 16px; z-index: 999; }
     .skip-link:focus { left: 10px; top: 10px; }
-    section[id], div[id] { scroll-margin-top: 96px; }
+    section[id], div[id] { scroll-margin-top: 16px; }
 
     /* Header */
     .site-header {
         display: flex; align-items: center; justify-content: space-between; gap: 18px;
         padding: 14px 28px; border-bottom: 1px solid var(--border-color);
-        background: rgba(11, 15, 25, 0.9); backdrop-filter: blur(12px);
-        position: sticky; top: 0; z-index: 100;
+        background: var(--bg-color);
+        position: relative; z-index: 100;
     }
     .logo { font-size: 1.35rem; font-weight: 700; color: var(--accent-color); letter-spacing: 3px; text-decoration: none; white-space: nowrap; }
     .logo span { color: var(--text-main); }

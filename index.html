@@ -33,7 +33,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
 <style>
     :root {
         --bg-color: #0b0f19;
@@ -59,6 +59,7 @@
     :lang(ne) body, html[lang="ne"] body { font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', 'Malgun Gothic', sans-serif; }
     img { max-width: 100%; display: block; }
     a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; border-radius: 4px; }
     button, input, select, textarea { font: inherit; }
     .skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent-color); color: #000; padding: 10px 16px; z-index: 999; }
     .skip-link:focus { left: 10px; top: 10px; }
@@ -165,6 +166,11 @@
     .why-item { border-left: 2px solid var(--border-color); padding: 4px 0 4px 18px; }
     .why-item h3 { font-size: 0.98rem; margin-bottom: 6px; }
     .why-item p { font-size: 0.86rem; color: var(--text-muted); }
+
+    .clinic-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .clinic-cta { margin-top: 28px; }
+    @media (max-width: 980px) { .clinic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 700px) { .clinic-grid { grid-template-columns: 1fr; } }
 
     /* FAQ */
     .faq-list { max-width: 860px; }
@@ -339,6 +345,21 @@
           "@type": "Question",
           "name": "정품과 인증을 확인할 수 있나요?",
           "acceptedAnswer": { "@type": "Answer", "text": "공급사의 사업자등록증과 제품 인증서를 확인한 뒤 필요한 범위에서 사본을 제공합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "결제는 어떻게 진행되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "계약금 30~50%와 잔금(선적 전)으로 진행하며, T/T를 기본으로 합니다. 세부 조건은 견적서에 명시합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "샘플을 받을 수 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "샘플은 제품 원가와 국제 운송비를 기준으로 제공하며, 브랜드사 협조가 있는 경우 무료 샘플도 안내합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "보증과 반품은 어떻게 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "제조사 보증(통상 1~2년)이 적용되며, 초기 불량은 수령 후 7일 내 1:1 교환을 원칙으로 합니다. 단순 변심 반품은 국제 운송 특성상 제한됩니다." }
         }
       ]
     }
@@ -355,6 +376,7 @@
         <a href="#products" data-i18n="nav.products">상품</a>
         <a href="#services" data-i18n="nav.services">서비스</a>
         <a href="#process" data-i18n="nav.process">진행 절차</a>
+        <a href="#clinic" data-i18n="nav.clinic">클리닉</a>
         <a href="#faq" data-i18n="nav.faq">FAQ</a>
         <a href="#contact" data-i18n="nav.contact">연락처</a>
     </nav>
@@ -475,6 +497,18 @@
         </div>
     </section>
 
+    <section class="section" id="clinic">
+        <div class="section-head">
+            <p class="eyebrow" data-i18n="clinic.eyebrow">Clinic &amp; VVIP</p>
+            <h2 class="section-title" data-i18n="clinic.title">클리닉 &amp; VVIP 파트너십</h2>
+            <p class="section-desc" data-i18n="clinic.desc">프리미엄 클리닉과 VVIP 고객을 위한 데모, 교육, 보증, 소모품 공급을 함께 설계합니다.</p>
+        </div>
+        <div class="clinic-grid" id="clinic-grid"></div>
+        <div class="clinic-cta">
+            <a class="btn btn-gold" href="#quote" data-i18n="clinic.cta">클리닉 상담 요청</a>
+        </div>
+    </section>
+
     <section class="section" id="faq">
         <div class="section-head">
             <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
@@ -589,7 +623,7 @@
                 desc: "CareFlow는 정관장·커런트바디·듀얼소닉 등 한국 프리미엄 뷰티·웰니스 제품을 네팔·캄보디아·미얀마·태국으로 공급하는 B2B 소싱·구매대행 에이전시입니다. 공급사 검증, 품질 검수, 통관 서류, 현지 사정에 맞는 운송 방식 협의까지 지원합니다."
             },
             nav: {
-                products: "상품", services: "서비스", process: "진행 절차", faq: "FAQ", contact: "연락처",
+                products: "상품", services: "서비스", process: "진행 절차", clinic: "클리닉", faq: "FAQ", contact: "연락처",
                 cta: "견적 요청", wa: "WhatsApp"
             },
             hero: {
@@ -663,6 +697,18 @@
                     { title: "3개 언어 대응", desc: "한국어·영어·네팔어로 상담이 가능합니다." }
                 ]
             },
+            clinic: {
+                eyebrow: "Clinic & VVIP",
+                title: "클리닉 & VVIP 파트너십",
+                desc: "프리미엄 클리닉과 VVIP 고객을 위한 데모, 교육, 보증, 소모품 공급을 함께 설계합니다.",
+                cta: "클리닉 상담 요청",
+                items: [
+                    { title: "데모 & 직원 교육", desc: "장비 시연과 사용 교육을 현장에서 진행합니다." },
+                    { title: "보증 & A/S", desc: "제조사 보증 범위와 현지 교환 절차를 사전에 합의합니다." },
+                    { title: "소모품 공급", desc: "카트리지·패드 등 소모품을 정기적으로 공급합니다." },
+                    { title: "지역 독점 (협의)", desc: "지역·기간·최소 물량을 기준으로 독점 조건을 협의합니다." }
+                ]
+            },
             faq: {
                 eyebrow: "FAQ",
                 title: "자주 묻는 질문",
@@ -671,7 +717,10 @@
                     { q: "최소 주문 수량(MOQ)이 있나요?", a: "제품별로 다릅니다. 샘플 1개부터 협의가 가능하며, 대량 주문 시 단가를 재협상합니다." },
                     { q: "네팔까지 어떻게, 얼마나 걸려서 보내나요?", a: "현지 파트너가 핸드캐리로 직접 운반해 빠르고 안전하게 전달합니다. 통관 상황에 따라 일정이 조정될 수 있으며, 세부 일정은 견적 시 안내드립니다." },
                     { q: "가격은 어떻게 구성되나요?", a: "제품 공급가 + 소싱 수수료 + 국제 운송비 + 현지 통관·세금으로 구성되며, 견적서에 항목별로 표기합니다." },
-                    { q: "정품과 인증을 확인할 수 있나요?", a: "공급사의 사업자등록증과 제품 인증서를 확인한 뒤, 필요한 범위에서 사본을 제공합니다." }
+                    { q: "정품과 인증을 확인할 수 있나요?", a: "공급사의 사업자등록증과 제품 인증서를 확인한 뒤, 필요한 범위에서 사본을 제공합니다." },
+                    { q: "결제는 어떻게 진행되나요?", a: "계약금 30~50%와 잔금(선적 전)으로 진행하며, T/T를 기본으로 합니다. 세부 조건은 견적서에 명시합니다." },
+                    { q: "샘플을 받을 수 있나요?", a: "가능합니다. 샘플은 제품 원가와 국제 운송비를 기준으로 제공하며, 브랜드사 협조가 있는 경우 무료 샘플도 안내드립니다." },
+                    { q: "보증과 반품은 어떻게 되나요?", a: "제조사 보증(통상 1~2년)이 적용됩니다. 초기 불량은 수령 후 7일 내 1:1 교환을 원칙으로 하며, 단순 변심 반품은 국제 운송 특성상 제한됩니다." }
                 ]
             },
             quote: {
@@ -713,8 +762,8 @@ WhatsApp:
                 emailTitle: "이메일",
                 emailDesc: "견적서, 공급사 서류, 계약 관련 문의.",
                 hoursTitle: "상담 시간",
-                hoursDesc: "한국 표준시(KST) 기준입니다.",
-                hours: "평일 09:00 – 18:00 (KST)",
+                hoursDesc: "한국 시간(KST)과 네팔 시간(NPT)을 함께 표기합니다.",
+                hours: "평일 09:00–18:00 (KST) · 네팔 05:45–14:45 (NPT)",
                 companyTitle: "사업자 정보",
                 company: [
                     ["상호", "케어플로 (CareFlow)"],
@@ -741,7 +790,7 @@ WhatsApp:
                 desc: "CareFlow sources premium Korean beauty and wellness products — CheongKwanJang, CurrentBody, Dualsonic — for distributors in Nepal, Cambodia, Myanmar and Thailand, covering supplier verification, QC, export documents and shipping coordination."
             },
             nav: {
-                products: "Products", services: "Services", process: "Process", faq: "FAQ", contact: "Contact",
+                products: "Products", services: "Services", process: "Process", clinic: "Clinic", faq: "FAQ", contact: "Contact",
                 cta: "Get a Quote", wa: "WhatsApp"
             },
             hero: {
@@ -815,6 +864,18 @@ WhatsApp:
                     { title: "Three languages", desc: "Support in Korean, English and Nepali." }
                 ]
             },
+            clinic: {
+                eyebrow: "Clinic & VVIP",
+                title: "Clinic & VVIP Partnership",
+                desc: "We design demo, training, warranty and consumable supply for premium clinics and their VVIP clients.",
+                cta: "Request a Clinic Consultation",
+                items: [
+                    { title: "Demo & Staff Training", desc: "On-site device demonstration and staff training." },
+                    { title: "Warranty & After-sales", desc: "Manufacturer warranty scope and local exchange procedure agreed in advance." },
+                    { title: "Consumables Supply", desc: "Regular supply of cartridges, pads and other consumables." },
+                    { title: "Territory Exclusivity (negotiable)", desc: "Exclusivity discussed by territory, term and minimum volume." }
+                ]
+            },
             faq: {
                 eyebrow: "FAQ",
                 title: "Frequently Asked Questions",
@@ -823,7 +884,10 @@ WhatsApp:
                     { q: "Is there a minimum order quantity (MOQ)?", a: "It depends on the product. We can start from a single sample and renegotiate unit prices for larger orders." },
                     { q: "How are products delivered to Nepal, and how long does it take?", a: "A local partner carries the products by hand, which keeps delivery fast and safe. The schedule may adjust with customs conditions, and we confirm the details in the quotation." },
                     { q: "How is the price calculated?", a: "Product supply price + sourcing fee + international freight + local customs and taxes. Each item is listed separately in the quotation." },
-                    { q: "Can you confirm authenticity and certifications?", a: "We verify the supplier's business registration and product certificates, and share copies to the extent required." }
+                    { q: "Can you confirm authenticity and certifications?", a: "We verify the supplier's business registration and product certificates, and share copies to the extent required." },
+                    { q: "How does payment work?", a: "A 30–50% deposit and the balance before shipment, by T/T. Final terms are stated in the quotation." },
+                    { q: "Can I request a sample?", a: "Yes. Samples are provided at product cost plus international freight; free samples may be available when the brand supports it." },
+                    { q: "What about warranty and returns?", a: "Manufacturer warranty (typically 1–2 years) applies. Dead-on-arrival units are exchanged within 7 days; change-of-mind returns are limited due to international shipping." }
                 ]
             },
             quote: {
@@ -865,8 +929,8 @@ Additional requirements:
                 emailTitle: "Email",
                 emailDesc: "Quotations, supplier documents and contracts.",
                 hoursTitle: "Business hours",
-                hoursDesc: "All times are Korea Standard Time (KST).",
-                hours: "Mon–Fri 09:00 – 18:00 (KST)",
+                hoursDesc: "Nepal Time (NPT) shown first, with Korea Standard Time (KST) in brackets.",
+                hours: "Mon–Fri 05:45–14:45 (NPT) · 09:00–18:00 (KST)",
                 companyTitle: "Company Information",
                 company: [
                     ["Company", "CareFlow"],
@@ -893,7 +957,7 @@ Additional requirements:
                 desc: "CareFlow ले CheongKwanJang, CurrentBody, Dualsonic जस्ता कोरियाली प्रिमियम सौन्दर्य तथा वेलनेस उत्पादनहरू नेपाल, कम्बोडिया, म्यानमार र थाइल्यान्डका वितरकहरूका लागि सोर्स गर्छ। आपूर्तिकर्ता प्रमाणीकरण, गुणस्तर जाँच, निर्यात कागजात र स्थानीय अवस्थाअनुसार उपयुक्त ढुवानी माध्यमको तयारी समेत।"
             },
             nav: {
-                products: "उत्पादन", services: "सेवा", process: "प्रक्रिया", faq: "प्रश्न", contact: "सम्पर्क",
+                products: "उत्पादन", services: "सेवा", process: "प्रक्रिया", clinic: "क्लिनिक", faq: "प्रश्न", contact: "सम्पर्क",
                 cta: "कोटेशन", wa: "WhatsApp"
             },
             hero: {
@@ -967,6 +1031,18 @@ Additional requirements:
                     { title: "तीन भाषामा सेवा", desc: "कोरियाली, अंग्रेजी र नेपालीमा परामर्श उपलब्ध।" }
                 ]
             },
+            clinic: {
+                eyebrow: "Clinic & VVIP",
+                title: "क्लिनिक र VVIP साझेदारी",
+                desc: "प्रिमियम क्लिनिक र VVIP ग्राहकका लागि डेमो, तालिम, वारेन्टी र उपभोग्य सामग्रीको आपूर्ति सँगै योजना गर्छौं।",
+                cta: "क्लिनिक परामर्श अनुरोध",
+                items: [
+                    { title: "डेमो र कर्मचारी तालिम", desc: "स्थलमै उपकरण प्रदर्शन र प्रयोग तालिम।" },
+                    { title: "वारेन्टी र A/S", desc: "निर्माताको वारेन्टी दायरा र स्थानीय साटासाट प्रक्रिया अग्रिम सहमति।" },
+                    { title: "उपभोग्य सामग्री आपूर्ति", desc: "कार्ट्रिज, प्याडलगायत उपभोग्य सामग्रीको नियमित आपूर्ति।" },
+                    { title: "क्षेत्रीय एकाधिकार (सहमतिमा)", desc: "क्षेत्र, अवधि र न्यूनतम परिमाणका आधारमा एकाधिकार सर्तमा छलफल।" }
+                ]
+            },
             faq: {
                 eyebrow: "FAQ",
                 title: "बारम्बार सोधिने प्रश्न",
@@ -975,7 +1051,10 @@ Additional requirements:
                     { q: "न्यूनतम अर्डर परिमाण (MOQ) कति हो?", a: "उत्पादनअनुसार फरक पर्छ। १ वटा नमुनाबाट सुरु गर्न सकिन्छ; ठूलो परिमाणमा मूल्य पुनः वार्ता गरिन्छ।" },
                     { q: "नेपालसम्म कसरी र कति समयमा पठाइन्छ?", a: "स्थानीय साझेदारले ह्यान्ड-क्यारीमार्फत सिधै बोकेर छिटो र सुरक्षित रूपमा पुर्‍याउँछ। भन्सार अवस्थाअनुसार तालिका समायोजन हुन सक्छ; विस्तृत जानकारी कोटेशनमा जानकारी गराइन्छ।" },
                     { q: "मूल्य कसरी निर्धारण हुन्छ?", a: "उत्पादन मूल्य + सोर्सिङ सेवा शुल्क + अन्तर्राष्ट्रिय ढुवानी + स्थानीय भन्सार/कर। कोटेशनमा प्रत्येक खर्च छुट्टै देखाइन्छ।" },
-                    { q: "सक्कली उत्पादन र प्रमाणपत्र कसरी पुष्टि गर्ने?", a: "आपूर्तिकर्ताको व्यवसाय दर्ता र उत्पादन प्रमाणपत्र जाँचेपछि आवश्यक हदसम्म प्रतिलिपि उपलब्ध गराइन्छ।" }
+                    { q: "सक्कली उत्पादन र प्रमाणपत्र कसरी पुष्टि गर्ने?", a: "आपूर्तिकर्ताको व्यवसाय दर्ता र उत्पादन प्रमाणपत्र जाँचेपछि आवश्यक हदसम्म प्रतिलिपि उपलब्ध गराइन्छ।" },
+                    { q: "भुक्तानी कसरी गरिन्छ?", a: "३०–५०% अग्रिम र बाँकी ढुवानीअघि, T/T मार्फत। अन्तिम सर्त कोटेशनमा उल्लेख गरिन्छ।" },
+                    { q: "नमुना माग्न सकिन्छ?", a: "सकिन्छ। नमुना उत्पादन मूल्य र अन्तर्राष्ट्रिय ढुवानी खर्चमा उपलब्ध गराइन्छ; ब्रान्डको सहयोग भएमा नि:शुल्क नमुना पनि जानकारी गराइन्छ।" },
+                    { q: "वारेन्टी र फिर्ता कसरी हुन्छ?", a: "निर्माताको वारेन्टी (सामान्यतया १–२ वर्ष) लागू हुन्छ। सुरुमै खराबी भएको उत्पादन ७ दिनभित्र १:१ साटिन्छ; अन्तर्राष्ट्रिय ढुवानीका कारण मन परिवर्तन भई फिर्ता सीमित हुन्छ।" }
                 ]
             },
             quote: {
@@ -1017,8 +1096,8 @@ WhatsApp:
                 emailTitle: "इमेल",
                 emailDesc: "कोटेशन, आपूर्तिकर्ता कागजात र सम्झौतासम्बन्धी सोधपुछ।",
                 hoursTitle: "परामर्श समय",
-                hoursDesc: "कोरिया मानक समय (KST) अनुसार।",
-                hours: "सोम–शुक्र ०९:०० – १८:०० (KST)",
+                hoursDesc: "नेपाल समय (NPT) पहिले, कोरिया समय (KST) कोष्ठकमा।",
+                hours: "सोम–शुक्र ०५:४५–१४:४५ (NPT) · ०९:००–१८:०० (KST)",
                 companyTitle: "व्यवसाय जानकारी",
                 company: [
                     ["कम्पनी", "CareFlow (케어플로)"],
@@ -1048,6 +1127,13 @@ WhatsApp:
         '<rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V2h6v2"></path><path d="M9 13l2 2 4-4"></path>',
         '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path>',
         '<path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="17" cy="18" r="1.5"></circle>'
+    ];
+
+    var CLINIC_ICONS = [
+        '<rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8"></path><path d="M12 16v4"></path>',
+        '<path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path>',
+        '<path d="M3 7l9-4 9 4-9 4z"></path><path d="M3 7v10l9 4 9-4V7"></path>',
+        '<circle cx="12" cy="10" r="3"></circle><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"></path>'
     ];
 
     var currentLang = "ko";
@@ -1090,6 +1176,17 @@ WhatsApp:
             services.innerHTML = t.services.items.map(function (item, i) {
                 return '<div class="service-card">' +
                     '<div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + SERVICE_ICONS[i] + '</svg></div>' +
+                    "<h3>" + esc(item.title) + "</h3>" +
+                    "<p>" + esc(item.desc) + "</p>" +
+                    "</div>";
+            }).join("");
+        }
+
+        var clinic = document.getElementById("clinic-grid");
+        if (clinic) {
+            clinic.innerHTML = t.clinic.items.map(function (item, i) {
+                return '<div class="service-card">' +
+                    '<div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true">' + CLINIC_ICONS[i] + '</svg></div>' +
                     "<h3>" + esc(item.title) + "</h3>" +
                     "<p>" + esc(item.desc) + "</p>" +
                     "</div>";
@@ -1288,5 +1385,7 @@ WhatsApp:
     applyLang(initialLang());
 })();
 </script>
+<script src="assets/analytics-config.js"></script>
+<script src="assets/analytics.js" defer></script>
 </body>
 </html>

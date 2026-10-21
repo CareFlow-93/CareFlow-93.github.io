@@ -20,6 +20,9 @@ assets/
   favicon.svg
   apple-touch-icon.png
   legal.css         Shared styles for legal pages
+  analytics.js      Optional Supabase event tracking
+  analytics-config.js  Supabase URL / publishable key (empty by default)
+supabase/           Analytics migration, reports and setup notes
 ```
 
 ## Language handling
@@ -30,11 +33,21 @@ assets/
 
 ## Quote form
 
-The quote section has no backend and stores nothing. It shows an editable,
+The quote section stores nothing on the site. It shows an editable,
 free-form template in the selected language and offers four ways to send it:
 Gmail web compose (no mail app required), `mailto:` for a desktop mail client,
 WhatsApp, or copying the text. Product buttons insert the selected product
 name into the template.
+
+## Analytics
+
+Optional and disabled until configured. Run
+`supabase/migrations/20261022000000_site_events.sql`, then fill the URL and
+publishable key in `assets/analytics-config.js`. The script exits silently when
+those values are empty. RLS allows inserts only; the browser cannot read events.
+
+Tracked events: `page_view`, `whatsapp_click`, `gmail_click`, `mailto_click`,
+`copy_click`, `product_quote_click`, `lang_switch`, `quote_cta_click`.
 
 ## Deployment
 

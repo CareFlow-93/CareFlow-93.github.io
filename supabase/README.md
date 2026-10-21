@@ -41,9 +41,9 @@ Run `supabase/reports.sql` in the SQL editor, or query the
 Supabase is not a mailbox provider. Split the setup:
 
 **Receiving**
-- Gabia domain mail, or a forwarding service (ImprovMX / ForwardEmail)
-- Forward `sales@careflow.kr` to the Naver inbox
-- Add MX, SPF and DMARC records at Gabia
+- Live via ImprovMX: `sales@`, `info@` and `support@careflow.kr` forward to the
+  Naver inbox, with MX records `mx1/mx2/mx3.improvmx.com` at Gabia.
+- Gabia domain mail remains an option if a real mailbox is needed later.
 
 **Sending (optional)**
 - Create a Resend account and verify `careflow.kr` at Gabia DNS
@@ -51,7 +51,8 @@ Supabase is not a mailbox provider. Split the setup:
 - Deploy an Edge Function that sends quote notifications with
   `From: CareFlow <sales@careflow.kr>`
 
-Do not publish `sales@careflow.kr` on the site until receiving works.
+Replies currently go out from the Naver address. Add sending only when a
+`careflow.kr` From address is required.
 
 ## 3. Quote storage (optional, later)
 

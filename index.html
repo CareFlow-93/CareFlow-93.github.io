@@ -219,8 +219,11 @@
     .contact-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 26px; }
     .contact-card h3 { font-size: 0.95rem; margin-bottom: 6px; }
     .contact-card p { font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px; }
-    .contact-card .big { font-size: 1.02rem; font-weight: 600; color: var(--text-main); text-decoration: none; word-break: break-all; }
+    .contact-card .big { font-size: 1.02rem; font-weight: 600; color: var(--text-main); text-decoration: none; word-break: break-all; white-space: pre-line; }
     .contact-card .big:hover { color: var(--accent-color); }
+    .contact-sub { margin-top: 12px; font-size: 0.78rem; line-height: 1.8; }
+    .contact-sub a { color: var(--text-muted); text-decoration: none; }
+    .contact-sub a:hover { color: var(--accent-color); }
     .company-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; table-layout: fixed; }
     .company-table th, .company-table td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--border-soft); vertical-align: top; overflow-wrap: anywhere; }
     .company-table th { color: var(--text-muted); font-weight: 500; width: 150px; padding-right: 12px; }
@@ -296,7 +299,7 @@
       "name": "CareFlow",
       "alternateName": "케어플로",
       "url": "https://careflow.kr/",
-      "email": "tjdals3982@naver.com",
+      "email": "sales@careflow.kr",
       "telephone": "+82-10-2386-0069",
       "description": "Korean B2B sourcing and purchasing agency for premium aesthetic and wellness products, serving Nepal, Cambodia, Myanmar and Thailand.",
       "address": {
@@ -359,7 +362,7 @@
         {
           "@type": "Question",
           "name": "보증과 반품은 어떻게 되나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "제조사 보증(통상 1~2년)이 적용되며, 초기 불량은 수령 후 7일 내 1:1 교환을 원칙으로 합니다. 단순 변심 반품은 국제 운송 특성상 제한됩니다." }
+          "acceptedAnswer": { "@type": "Answer", "text": "제조사 보증(통상 1~2년)이 적용되며, 초기 불량은 수령 후 7일 내 1:1 교환을 원칙으로 합니다. 단순 변심 반품은 국제 운송 특성상 제한됩니다. A/S 문의: support@careflow.kr." }
         }
       ]
     }
@@ -561,12 +564,18 @@
             <div class="contact-card">
                 <h3 data-i18n="contact.emailTitle">이메일</h3>
                 <p data-i18n="contact.emailDesc">견적서, 공급사 서류, 계약 관련 문의.</p>
-                <a class="big" href="mailto:tjdals3982@naver.com">tjdals3982@naver.com</a>
+                <a class="big" href="mailto:sales@careflow.kr">sales@careflow.kr</a>
+                <p class="contact-sub">
+                    <span data-i18n="contact.emailGeneral">일반·제휴</span>
+                    <a href="mailto:info@careflow.kr">info@careflow.kr</a><br>
+                    <span data-i18n="contact.emailSupport">A/S·보증</span>
+                    <a href="mailto:support@careflow.kr">support@careflow.kr</a>
+                </p>
             </div>
             <div class="contact-card">
                 <h3 data-i18n="contact.hoursTitle">상담 시간</h3>
-                <p data-i18n="contact.hoursDesc">한국 표준시(KST) 기준입니다.</p>
-                <span class="big" data-i18n="contact.hours">평일 09:00 – 18:00 (KST)</span>
+                <p data-i18n="contact.hoursDesc">한국 시간(KST)과 네팔 시간(NPT)을 함께 표기합니다.</p>
+                <span class="big" data-i18n="contact.hours">평일 09:00–18:00 (KST)<br>네팔 05:45–14:45 (NPT)</span>
             </div>
         </div>
         <div class="contact-card">
@@ -605,7 +614,7 @@
 
 <noscript>
     <div class="noscript">
-        일부 콘텐츠와 견적 폼은 JavaScript를 사용합니다. 문의는 <a href="mailto:tjdals3982@naver.com">tjdals3982@naver.com</a> 또는 <a href="https://wa.me/821023860069">WhatsApp +82 10-2386-0069</a>로 보내주세요. / Please contact us by email or WhatsApp if JavaScript is disabled.
+        일부 콘텐츠와 견적 폼은 JavaScript를 사용합니다. 문의는 <a href="mailto:info@careflow.kr">info@careflow.kr</a> 또는 <a href="https://wa.me/821023860069">WhatsApp +82 10-2386-0069</a>로 보내주세요. / Please contact us by email or WhatsApp if JavaScript is disabled.
     </div>
 </noscript>
 
@@ -613,7 +622,7 @@
 (function () {
     "use strict";
 
-    var EMAIL = "tjdals3982@naver.com";
+    var EMAIL = "sales@careflow.kr";
     var WA_NUMBER = "821023860069";
 
     var I18N = {
@@ -720,7 +729,7 @@
                     { q: "정품과 인증을 확인할 수 있나요?", a: "공급사의 사업자등록증과 제품 인증서를 확인한 뒤, 필요한 범위에서 사본을 제공합니다." },
                     { q: "결제는 어떻게 진행되나요?", a: "계약금 30~50%와 잔금(선적 전)으로 진행하며, T/T를 기본으로 합니다. 세부 조건은 견적서에 명시합니다." },
                     { q: "샘플을 받을 수 있나요?", a: "가능합니다. 샘플은 제품 원가와 국제 운송비를 기준으로 제공하며, 브랜드사 협조가 있는 경우 무료 샘플도 안내드립니다." },
-                    { q: "보증과 반품은 어떻게 되나요?", a: "제조사 보증(통상 1~2년)이 적용됩니다. 초기 불량은 수령 후 7일 내 1:1 교환을 원칙으로 하며, 단순 변심 반품은 국제 운송 특성상 제한됩니다." }
+                    { q: "보증과 반품은 어떻게 되나요?", a: "제조사 보증(통상 1~2년)이 적용됩니다. 초기 불량은 수령 후 7일 내 1:1 교환을 원칙으로 하며, 단순 변심 반품은 국제 운송 특성상 제한됩니다. A/S 문의: support@careflow.kr." }
                 ]
             },
             quote: {
@@ -761,16 +770,19 @@ WhatsApp:
                 waDesc: "가장 빠른 상담 채널입니다. 제품명과 수량을 보내주세요.",
                 emailTitle: "이메일",
                 emailDesc: "견적서, 공급사 서류, 계약 관련 문의.",
+                emailGeneral: "일반·제휴",
+                emailSupport: "A/S·보증",
                 hoursTitle: "상담 시간",
                 hoursDesc: "한국 시간(KST)과 네팔 시간(NPT)을 함께 표기합니다.",
-                hours: "평일 09:00–18:00 (KST) · 네팔 05:45–14:45 (NPT)",
+                hours: `평일 09:00–18:00 (KST)
+네팔 05:45–14:45 (NPT)`, 
                 companyTitle: "사업자 정보",
                 company: [
                     ["상호", "케어플로 (CareFlow)"],
                     ["대표", "방민"],
                     ["사업자등록번호", "112-32-33805"],
                     ["주소", "서울특별시 동작구 장승배기로16길 12, 405호 (노량진동)"],
-                    ["이메일", "tjdals3982@naver.com"]
+                    ["이메일", "info@careflow.kr"]
                 ]
             },
             footer: {
@@ -887,7 +899,7 @@ WhatsApp:
                     { q: "Can you confirm authenticity and certifications?", a: "We verify the supplier's business registration and product certificates, and share copies to the extent required." },
                     { q: "How does payment work?", a: "A 30–50% deposit and the balance before shipment, by T/T. Final terms are stated in the quotation." },
                     { q: "Can I request a sample?", a: "Yes. Samples are provided at product cost plus international freight; free samples may be available when the brand supports it." },
-                    { q: "What about warranty and returns?", a: "Manufacturer warranty (typically 1–2 years) applies. Dead-on-arrival units are exchanged within 7 days; change-of-mind returns are limited due to international shipping." }
+                    { q: "What about warranty and returns?", a: "Manufacturer warranty (typically 1–2 years) applies. Dead-on-arrival units are exchanged within 7 days; change-of-mind returns are limited due to international shipping. A/S: support@careflow.kr." }
                 ]
             },
             quote: {
@@ -928,16 +940,19 @@ Additional requirements:
                 waDesc: "Our fastest channel. Send the product name and quantity.",
                 emailTitle: "Email",
                 emailDesc: "Quotations, supplier documents and contracts.",
+                emailGeneral: "General & partnerships",
+                emailSupport: "After-sales",
                 hoursTitle: "Business hours",
                 hoursDesc: "Nepal Time (NPT) shown first, with Korea Standard Time (KST) in brackets.",
-                hours: "Mon–Fri 05:45–14:45 (NPT) · 09:00–18:00 (KST)",
+                hours: `Mon–Fri 05:45–14:45 (NPT)
+09:00–18:00 (KST)`, 
                 companyTitle: "Company Information",
                 company: [
                     ["Company", "CareFlow"],
                     ["CEO", "Bang Min"],
                     ["Business Reg. No.", "112-32-33805"],
                     ["Address", "#405, 12 Jangseungbaegi-ro 16-gil, Dongjak-gu, Seoul, Korea"],
-                    ["Email", "tjdals3982@naver.com"]
+                    ["Email", "info@careflow.kr"]
                 ]
             },
             footer: {
@@ -1054,7 +1069,7 @@ Additional requirements:
                     { q: "सक्कली उत्पादन र प्रमाणपत्र कसरी पुष्टि गर्ने?", a: "आपूर्तिकर्ताको व्यवसाय दर्ता र उत्पादन प्रमाणपत्र जाँचेपछि आवश्यक हदसम्म प्रतिलिपि उपलब्ध गराइन्छ।" },
                     { q: "भुक्तानी कसरी गरिन्छ?", a: "३०–५०% अग्रिम र बाँकी ढुवानीअघि, T/T मार्फत। अन्तिम सर्त कोटेशनमा उल्लेख गरिन्छ।" },
                     { q: "नमुना माग्न सकिन्छ?", a: "सकिन्छ। नमुना उत्पादन मूल्य र अन्तर्राष्ट्रिय ढुवानी खर्चमा उपलब्ध गराइन्छ; ब्रान्डको सहयोग भएमा नि:शुल्क नमुना पनि जानकारी गराइन्छ।" },
-                    { q: "वारेन्टी र फिर्ता कसरी हुन्छ?", a: "निर्माताको वारेन्टी (सामान्यतया १–२ वर्ष) लागू हुन्छ। सुरुमै खराबी भएको उत्पादन ७ दिनभित्र १:१ साटिन्छ; अन्तर्राष्ट्रिय ढुवानीका कारण मन परिवर्तन भई फिर्ता सीमित हुन्छ।" }
+                    { q: "वारेन्टी र फिर्ता कसरी हुन्छ?", a: "निर्माताको वारेन्टी (सामान्यतया १–२ वर्ष) लागू हुन्छ। सुरुमै खराबी भएको उत्पादन ७ दिनभित्र १:१ साटिन्छ; अन्तर्राष्ट्रिय ढुवानीका कारण मन परिवर्तन भई फिर्ता सीमित हुन्छ। A/S: support@careflow.kr." }
                 ]
             },
             quote: {
@@ -1095,16 +1110,19 @@ WhatsApp:
                 waDesc: "सबैभन्दा छिटो सम्पर्क माध्यम। उत्पादनको नाम र परिमाण पठाउनुहोस्।",
                 emailTitle: "इमेल",
                 emailDesc: "कोटेशन, आपूर्तिकर्ता कागजात र सम्झौतासम्बन्धी सोधपुछ।",
+                emailGeneral: "सामान्य र साझेदारी",
+                emailSupport: "A/S",
                 hoursTitle: "परामर्श समय",
                 hoursDesc: "नेपाल समय (NPT) पहिले, कोरिया समय (KST) कोष्ठकमा।",
-                hours: "सोम–शुक्र ०५:४५–१४:४५ (NPT) · ०९:००–१८:०० (KST)",
+                hours: `सोम–शुक्र ०५:४५–१४:४५ (NPT)
+०९:००–१८:०० (KST)`, 
                 companyTitle: "व्यवसाय जानकारी",
                 company: [
                     ["कम्पनी", "CareFlow (케어플로)"],
                     ["प्रतिनिधि", "Bang Min"],
                     ["दर्ता नम्बर", "112-32-33805"],
                     ["ठेगाना", "Seoul, Dongjak-gu, Jangseungbaegi-ro 16-gil 12, #405, Korea"],
-                    ["इमेल", "tjdals3982@naver.com"]
+                    ["इमेल", "info@careflow.kr"]
                 ]
             },
             footer: {
